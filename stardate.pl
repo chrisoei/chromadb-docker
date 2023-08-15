@@ -4,11 +4,6 @@
 # $Date: 2023/05/18 04:36:36 $
 # $Revision: 3.3 $
 
-# envy.rb global set F1 /git/github.com/fruumrol/asuka/bin/stardate.pl
-# ps /git/github.com/fruumrol/asuka/bin/stardate.pl
-# copys5.py /git/github.com/fruumrol/asuka/bin/stardate.pl
-# verse /git/github.com/fruumrol/asuka/bin/stardate.pl
-
 use strict;
 use warnings;
 
