@@ -4,7 +4,7 @@
 # $Date: 2023/01/02 04:27:34 $
 # $Revision: 1.9 $
 
-FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel as chromadb1
+FROM ubuntu:22.04
 
 SHELL ["/bin/bash", "-ceoux", "pipefail"]
 
@@ -35,7 +35,16 @@ RUN \
     --mount=type=cache,target=/var/cache/o31,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     <<EOF
-  apt install -y ack libpq-dev sudo tree vim wget
+  apt install -y \
+    ack \
+    libpq-dev \
+    python3-dev \
+    python3-pip \
+    sudo \
+    tree \
+    vim \
+    wget \
+
   $WGET1 "https://github.com/borgbackup/borg/releases/download/$BORG_VERSION/borg-linuxnew64"
   cp "$MIRROR1/https/github.com/borgbackup/borg/releases/download/$BORG_VERSION/borg-linuxnew64" \
     /usr/local/bin/borg
@@ -62,7 +71,7 @@ RUN \
     --mount=type=cache,target=/var/cache/o31,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     <<EOF1
-  /opt/conda/bin/python3 <<EOF2
+  python3 <<EOF2
 import chromadb
 
 # See https://huggingface.co/spaces/mteb/leaderboard
