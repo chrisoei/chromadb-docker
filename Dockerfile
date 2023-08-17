@@ -77,5 +77,6 @@ EOF2
 EOF1
 
 WORKDIR /home/c
+COPY --chmod=644 bashrc /home/c/.bashrc
 
 # vim: set et ff=unix ft=dockerfile nocp sts=2 sw=2 ts=2:
